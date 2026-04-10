@@ -10,17 +10,19 @@ const translations = {
     nav: { cta: 'Get Your Offer', tagline: 'Auto Sales, Leasing, & Trade In' },
     hero: {
       badge: 'Vehicle Appraisal',
-      headingPre: 'Get an',
-      headingAccent: 'Instant Quote',
-      headingPost: 'for Your Vehicle',
-      subtitle: 'Fill out the form below and receive a real, competitive market-value offer — no haggling, no dealership visits.',
+      headingLine1: 'Best Price on',
+      headingAccent: 'Lease & Used',
+      headingLine2: 'Vehicles',
+      sub1: 'Better prices than CarMax',
+      sub2: 'Instant Contact · Same-Day Pickup · Fast Payment',
+      cta: 'Get Your Price in One Click',
     },
     features: {
       heading: 'The Smarter Way to Sell Your Car',
       items: [
         { title: 'Fill Out in Minutes', desc: 'Enter your VIN and a few vehicle details. No lengthy paperwork, no appointments needed.' },
         { title: 'Expert Evaluation', desc: 'Our specialist reviews your submission and prepares a real, personalized offer.' },
-        { title: 'Same-Day Response', desc: 'We contact you directly with a competitive offer based on live market data.' },
+        { title: 'Same-Day Response', desc: 'We reach out with a competitive, market-based offer.' },
         { title: 'We Come to You', desc: "Accept the offer and we'll pick up your vehicle at any location, on your schedule." },
       ],
     },
@@ -37,14 +39,13 @@ const translations = {
       colorLabel: 'Exterior Finish',
       accidentLabel: 'Accident History',
       accidentOptions: [
-        { label: 'No Accidents', value: 'NO ACCIDENTS' },
-        { label: '1 Incident', value: '1 INCIDENT' },
-        { label: '2+ Incidents', value: '2+ INCIDENTS' },
+        { label: 'No Accident', value: 'NO ACCIDENT' },
+        { label: 'Minor', value: 'MINOR' },
+        { label: 'Major', value: 'MAJOR' },
       ],
       financialLabel: 'Financial Status',
       financialOptions: [
-        { label: 'Finance / Loan', value: 'FINANCE / LOAN' },
-        { label: 'Active Lease', value: 'ACTIVE LEASE' },
+        { label: 'Lease', value: 'LEASE' },
         { label: 'Paid in Full', value: 'PAID IN FULL' },
       ],
       namePlaceholder: 'Full Name',
@@ -70,11 +71,13 @@ const translations = {
   ko: {
     nav: { cta: '견적 받기', tagline: '자동차 판매, 리스 & 트레이드인' },
     hero: {
-      badge: '차량 감정 서비스',
-      headingPre: '내 차량의',
-      headingAccent: '즉시 견적',
-      headingPost: '을 받아보세요',
-      subtitle: '아래 양식을 작성하시면 실제 시장 가치에 기반한 경쟁력 있는 오퍼를 받으실 수 있습니다.',
+      badge: 'Vehicle Appraisal',
+      headingLine1: '리스 · 중고차',
+      headingAccent: '최대가격',
+      headingLine2: '으로 매입합니다',
+      sub1: '카맥스보다 더 좋은 가격',
+      sub2: '즉시 연락 · 당일 픽업 · 빠른 입금',
+      cta: '클릭 한번으로 가격확인',
     },
     features: {
       heading: '더 스마트한 차량 판매 방법',
@@ -98,14 +101,13 @@ const translations = {
       colorLabel: '외부 색상',
       accidentLabel: '사고 이력',
       accidentOptions: [
-        { label: '무사고', value: 'NO ACCIDENTS' },
-        { label: '1회 사고', value: '1 INCIDENT' },
-        { label: '2회 이상', value: '2+ INCIDENTS' },
+        { label: '무사고', value: 'NO ACCIDENT' },
+        { label: '경미한 사고', value: 'MINOR' },
+        { label: '중대한 사고', value: 'MAJOR' },
       ],
       financialLabel: '재정 상태',
       financialOptions: [
-        { label: '할부 / 대출', value: 'FINANCE / LOAN' },
-        { label: '리스 중', value: 'ACTIVE LEASE' },
+        { label: '리스', value: 'LEASE' },
         { label: '완납', value: 'PAID IN FULL' },
       ],
       namePlaceholder: '이름',
@@ -134,18 +136,18 @@ type Lang = 'en' | 'ko'
 
 // ─── Colors ───────────────────────────────────────────────────────────────────
 const COLORS = [
-  { value: 'WHITE',  label: { en: 'White',  ko: '흰색' },  hex: '#ffffff', border: '#d1d5db' },
-  { value: 'BLACK',  label: { en: 'Black',  ko: '검정' },  hex: '#1a1a1a' },
-  { value: 'SILVER', label: { en: 'Silver', ko: '은색' },  hex: '#c0c0c0' },
-  { value: 'GREY',   label: { en: 'Grey',   ko: '회색' },  hex: '#808080' },
-  { value: 'BLUE',   label: { en: 'Blue',   ko: '파란색' }, hex: '#2563eb' },
-  { value: 'RED',    label: { en: 'Red',    ko: '빨간색' }, hex: '#dc2626' },
-  { value: 'BROWN',  label: { en: 'Brown',  ko: '갈색' },  hex: '#7c3929' },
-  { value: 'GOLD',   label: { en: 'Gold',   ko: '골드' },  hex: '#d4a017' },
-  { value: 'BEIGE',  label: { en: 'Beige',  ko: '베이지' }, hex: '#d4c5a9' },
-  { value: 'GREEN',  label: { en: 'Green',  ko: '초록색' }, hex: '#16a34a' },
-  { value: 'ORANGE', label: { en: 'Orange', ko: '주황색' }, hex: '#ea580c' },
-  { value: 'OTHER',  label: { en: 'Other',  ko: '기타' },  hex: '#9ca3af' },
+  { value: 'WHITE',  label: { en: 'White',  ko: '흰색' },  hex: '#f5f5f5', textColor: '#333333', border: '#d1d5db' },
+  { value: 'BLACK',  label: { en: 'Black',  ko: '검정' },  hex: '#1a1a1a', textColor: '#ffffff' },
+  { value: 'SILVER', label: { en: 'Silver', ko: '은색' },  hex: '#b0b0b0', textColor: '#1a1a1a' },
+  { value: 'GREY',   label: { en: 'Grey',   ko: '회색' },  hex: '#707070', textColor: '#ffffff' },
+  { value: 'BLUE',   label: { en: 'Blue',   ko: '파란색' }, hex: '#1e3a8a', textColor: '#ffffff' },
+  { value: 'RED',    label: { en: 'Red',    ko: '빨간색' }, hex: '#b91c1c', textColor: '#ffffff' },
+  { value: 'BROWN',  label: { en: 'Brown',  ko: '갈색' },  hex: '#7c3929', textColor: '#ffffff' },
+  { value: 'GOLD',   label: { en: 'Gold',   ko: '골드' },  hex: '#c9930a', textColor: '#ffffff' },
+  { value: 'BEIGE',  label: { en: 'Beige',  ko: '베이지' }, hex: '#d4c5a9', textColor: '#333333' },
+  { value: 'GREEN',  label: { en: 'Green',  ko: '초록색' }, hex: '#15803d', textColor: '#ffffff' },
+  { value: 'ORANGE', label: { en: 'Orange', ko: '주황색' }, hex: '#ea580c', textColor: '#ffffff' },
+  { value: 'OTHER',  label: { en: 'Other',  ko: '기타' },  hex: '#6b7280', textColor: '#ffffff' },
 ]
 
 interface FormData {
@@ -172,23 +174,25 @@ function IconTruck() {
 // ─── Navbar ───────────────────────────────────────────────────────────────────
 function Navbar({ onCTA, lang, setLang, tr }: { onCTA: () => void; lang: Lang; setLang: (l: Lang) => void; tr: typeof translations.en }) {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm" style={{ backgroundColor: 'rgba(0,0,0,0.55)', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <nav className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: '#0D1B2A', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+      <div className="px-8 md:px-14 py-5 flex items-center justify-between">
         <div className="flex flex-col leading-none">
-          <span className="text-xl font-black tracking-tight text-white">{COMPANY}</span>
-          <span className="text-[10px] tracking-widest uppercase mt-0.5" style={{ color: 'rgba(255,255,255,0.4)' }}>{tr.nav.tagline}</span>
+          <span className="text-3xl font-black tracking-tight">
+            <span style={{ color: 'white' }}>Auto</span><span style={{ color: '#F0A500' }}>Prime</span>
+          </span>
+          <span className="text-[11px] tracking-widest uppercase mt-1" style={{ color: 'rgba(255,255,255,0.7)' }}>{tr.nav.tagline}</span>
         </div>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center rounded-full p-0.5" style={{ backgroundColor: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}>
+        <div className="flex items-center">
+          <div className="flex items-center rounded-full p-1" style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}>
             <button
               onClick={() => setLang('en')}
-              className="px-3 py-1.5 rounded-full text-xs font-bold tracking-wider transition-all"
-              style={lang === 'en' ? { backgroundColor: 'white', color: '#0a0a0a' } : { color: 'rgba(255,255,255,0.5)' }}
+              className="px-6 py-2.5 rounded-full text-base font-bold tracking-wider transition-all"
+              style={lang === 'en' ? { backgroundColor: '#F0A500', color: '#0D1B2A' } : { color: 'rgba(255,255,255,0.5)' }}
             >EN</button>
             <button
               onClick={() => setLang('ko')}
-              className="px-3 py-1.5 rounded-full text-xs font-bold tracking-wider transition-all"
-              style={lang === 'ko' ? { backgroundColor: 'white', color: '#0a0a0a' } : { color: 'rgba(255,255,255,0.5)' }}
+              className="px-6 py-2.5 rounded-full text-base font-bold tracking-wider transition-all"
+              style={lang === 'ko' ? { backgroundColor: '#F0A500', color: '#0D1B2A' } : { color: 'rgba(255,255,255,0.5)' }}
             >한국어</button>
           </div>
         </div>
@@ -212,43 +216,50 @@ function Hero({ tr }: { tr: typeof translations.en }) {
   return (
     <section className="relative flex items-center justify-center text-center overflow-hidden" style={{ minHeight: '100vh' }}>
       {/* Full-bleed background image */}
-      <div className="absolute inset-0 bg-center bg-cover bg-no-repeat" style={{ backgroundImage: 'url(/hero.jpg)' }} />
-      {/* Dark overlay */}
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.75) 100%)' }} />
+      <div className="absolute inset-0 bg-center bg-cover bg-no-repeat" style={{ backgroundImage: 'url(/hero.png)' }} />
+      {/* Left-to-right gradient — text area bright, car stays crisp */}
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.1) 65%, rgba(255,255,255,0) 100%)' }} />
 
-      {/* Content */}
-      <div className="relative z-10 px-6 max-w-4xl mx-auto">
-        {/* Badge */}
-        <div className="inline-block rounded-full px-5 py-1.5 mb-8" style={{ border: '1px solid rgba(255,255,255,0.3)', backgroundColor: 'rgba(255,255,255,0.08)' }}>
-          <span className="text-[10px] tracking-[0.25em] uppercase font-medium text-white">{tr.hero.badge}</span>
+      {/* Content — centered, left half */}
+      <div className="relative z-10 w-full px-8 md:px-14 flex items-center" style={{ minHeight: '100vh' }}>
+        <div className="w-full md:w-[65%] text-left">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full" style={{ backgroundColor: '#0D1B2A' }}>
+            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#F0A500' }} />
+            <span className="text-sm tracking-[0.25em] uppercase font-bold" style={{ color: '#F0A500' }}>{tr.hero.badge}</span>
+          </div>
+
+          {/* Heading */}
+          <h1 className="font-black leading-tight mb-5" style={{ color: '#0D1B2A', fontSize: 'clamp(3.2rem, 6.5vw, 5.5rem)' }}>
+            <span className="block">{tr.hero.headingLine1}</span>
+            <span style={{ color: '#F0A500' }}>{tr.hero.headingAccent}</span>
+            {' '}
+            <span>{tr.hero.headingLine2}</span>
+          </h1>
+
+          {/* Gold divider */}
+          <div className="mb-7" style={{ width: '48px', height: '2px', backgroundColor: '#F0A500' }} />
+
+          {/* Sub lines */}
+          <p className="text-xl font-semibold mb-3" style={{ color: 'rgba(0,0,0,0.75)' }}>{tr.hero.sub1}</p>
+          <p className="text-lg mb-12 tracking-wide" style={{ color: 'rgba(0,0,0,0.5)' }}>{tr.hero.sub2}</p>
+
+          {/* CTA */}
+          <button
+            onClick={() => document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' })}
+            className="inline-flex items-center gap-3 px-12 py-5 rounded-full font-bold text-lg transition-all"
+            style={{ backgroundColor: '#0D1B2A', color: 'white' }}
+          >
+            {tr.hero.cta}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
         </div>
-
-        {/* Heading */}
-        <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6">
-          {tr.hero.headingPre}{' '}
-          <span className="text-white">{tr.hero.headingAccent}</span>
-          {' '}{tr.hero.headingPost}
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-base md:text-lg max-w-xl mx-auto mb-10 font-medium" style={{ color: 'rgba(255,255,255,0.65)' }}>
-          {tr.hero.subtitle}
-        </p>
-
-        {/* CTA */}
-        <button
-          onClick={() => document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' })}
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm tracking-widest uppercase transition-all bg-white text-gray-900 hover:bg-gray-100"
-        >
-          {tr.nav.cta}
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40">
-        <span className="text-white text-[10px] tracking-widest uppercase">Scroll</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-50">
+        <span className="text-[10px] tracking-widest uppercase" style={{ color: '#0D1B2A' }}>Scroll</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
     </section>
   )
@@ -271,7 +282,7 @@ function UnderlineInput({ label, placeholder, value, onChange, suffix, type = 't
 }) {
   return (
     <div className="flex flex-col gap-1">
-      <label className="text-[10px] font-bold tracking-widest uppercase text-gray-400">{label}</label>
+      <label className="text-sm font-bold tracking-widest uppercase text-gray-600 whitespace-nowrap">{label}</label>
       <div className="relative">
         <input
           type={type}
@@ -279,10 +290,10 @@ function UnderlineInput({ label, placeholder, value, onChange, suffix, type = 't
           value={value}
           maxLength={maxLength}
           onChange={e => onChange(e.target.value)}
-          className="w-full bg-transparent border-0 border-b-2 border-gray-200 focus:border-[#3B7B9C] outline-none py-3 text-sm text-gray-900 placeholder-gray-300 transition-colors pr-10"
+          className="w-full bg-transparent border-0 border-b-2 border-gray-200 focus:border-[#3B7B9C] outline-none py-4 text-xl text-gray-900 placeholder-gray-400 transition-colors pr-10"
           style={{ borderRadius: 0 }}
         />
-        {suffix && <span className="absolute right-0 bottom-3 text-[11px] tracking-widest text-gray-300 uppercase">{suffix}</span>}
+        {suffix && <span className="absolute right-0 bottom-4 text-base tracking-widest text-gray-300 uppercase">{suffix}</span>}
       </div>
     </div>
   )
@@ -293,7 +304,7 @@ function OptionButton({ label, selected, onClick }: { label: string; selected: b
   return (
     <button
       onClick={onClick}
-      className="px-5 py-3.5 rounded-lg text-xs font-bold tracking-wide transition-all border"
+      className="px-5 py-3.5 rounded-lg text-xl font-bold tracking-wide transition-all border"
       style={selected
         ? { backgroundColor: '#3B7B9C', color: 'white', borderColor: '#3B7B9C' }
         : { backgroundColor: 'white', color: '#6b7280', borderColor: '#e5e7eb' }
@@ -322,43 +333,53 @@ function Form({ lang, tr, onSubmit, submitting }: {
     form.email.trim() !== '' && form.phone.trim() !== '' && form.consent
 
   return (
-    <section className="bg-white py-24 px-6">
-      <div className="max-w-2xl mx-auto space-y-10">
+    <section className="bg-white py-24 px-8 md:px-16">
+      <div className="max-w-4xl mx-auto space-y-14">
 
         {/* Heading */}
         <div>
-          <p className="text-[10px] font-bold tracking-widest uppercase mb-3" style={{ color: '#3B7B9C' }}>
+          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: '#3B7B9C' }}>
             {lang === 'ko' ? '차량 감정 신청' : 'Vehicle Appraisal'}
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 leading-snug">
+          <h2 className="text-5xl md:text-6xl font-black text-gray-900 leading-snug">
             {lang === 'ko' ? '차량 정보를\n입력해 주세요' : "Tell Us About\nYour Vehicle"}
           </h2>
         </div>
 
         {/* VIN + Miles */}
-        <div className="space-y-6 pb-10 border-b border-gray-100">
-          <UnderlineInput label={f.vinLabel} placeholder={f.vinPlaceholder} value={form.vin}
-            onChange={v => set('vin', v.toUpperCase())} maxLength={17} />
-          <UnderlineInput label={f.milesLabel} placeholder={f.milesPlaceholder} value={form.miles}
-            onChange={v => set('miles', v.replace(/\D/g, ''))} suffix={f.milesSuffix} />
+        <div className="flex gap-8 pb-14 border-b border-gray-100">
+          <div className="flex-1 min-w-0">
+            <UnderlineInput label={f.vinLabel} placeholder={f.vinPlaceholder} value={form.vin}
+              onChange={v => set('vin', v.toUpperCase())} maxLength={17} />
+          </div>
+          <div className="w-64 flex-shrink-0">
+            <UnderlineInput label={f.milesLabel} placeholder={f.milesPlaceholder} value={form.miles}
+              onChange={v => set('miles', v.replace(/\D/g, ''))} suffix={f.milesSuffix} />
+          </div>
         </div>
 
         {/* Color */}
-        <div className="pb-10 border-b border-gray-100">
-          <p className="text-[10px] font-bold tracking-widest uppercase text-gray-400 mb-4">{f.colorLabel}</p>
-          <div className="grid grid-cols-4 gap-3">
-            {COLORS.map(({ value, label, hex, border }) => {
+        <div className="pb-14 border-b border-gray-100">
+          <p className="text-sm font-bold tracking-widest uppercase text-gray-600 mb-4">{f.colorLabel}</p>
+          <div className="grid grid-cols-3 md:grid-cols-4 gap-2">
+            {COLORS.map(({ value, label, hex, textColor, border }) => {
               const selected = form.color === value
               return (
                 <button key={value} onClick={() => set('color', value)}
-                  className="flex flex-col items-center gap-2 py-3 px-1 rounded-xl border transition-all"
-                  style={selected
-                    ? { borderColor: '#3B7B9C', backgroundColor: '#f0f7fc' }
-                    : { borderColor: '#e5e7eb', backgroundColor: 'white' }
-                  }
+                  className="relative flex items-center justify-center rounded-lg transition-all overflow-hidden"
+                  style={{
+                    backgroundColor: hex,
+                    height: '72px',
+                    border: selected ? '3px solid #0D1B2A' : `2px solid ${border || 'transparent'}`,
+                    boxShadow: selected ? '0 0 0 1px #0D1B2A' : 'none',
+                  }}
                 >
-                  <span className="w-5 h-5 rounded-full" style={{ backgroundColor: hex, border: `1.5px solid ${border || 'transparent'}`, boxShadow: selected ? '0 0 0 2px #3B7B9C' : 'none' }} />
-                  <span className="text-[10px] font-semibold" style={{ color: selected ? '#3B7B9C' : '#9ca3af' }}>{label[lang]}</span>
+                  <span className="text-base font-bold tracking-wide" style={{ color: textColor || '#ffffff', textShadow: '0 1px 2px rgba(0,0,0,0.2)' }}>
+                    {label[lang]}
+                  </span>
+                  {selected && (
+                    <span className="absolute top-1 right-1.5 text-[10px]" style={{ color: textColor || '#ffffff' }}>✓</span>
+                  )}
                 </button>
               )
             })}
@@ -366,8 +387,8 @@ function Form({ lang, tr, onSubmit, submitting }: {
         </div>
 
         {/* Accident History */}
-        <div className="pb-10 border-b border-gray-100">
-          <p className="text-[10px] font-bold tracking-widest uppercase text-gray-400 mb-4">{f.accidentLabel}</p>
+        <div className="pb-14 border-b border-gray-100">
+          <p className="text-sm font-bold tracking-widest uppercase text-gray-600 mb-4">{f.accidentLabel}</p>
           <div className="flex flex-wrap gap-3">
             {f.accidentOptions.map(opt => (
               <OptionButton key={opt.value} label={opt.label} selected={form.accidentHistory === opt.value} onClick={() => set('accidentHistory', opt.value)} />
@@ -376,8 +397,8 @@ function Form({ lang, tr, onSubmit, submitting }: {
         </div>
 
         {/* Financial Status */}
-        <div className="pb-10 border-b border-gray-100">
-          <p className="text-[10px] font-bold tracking-widest uppercase text-gray-400 mb-4">{f.financialLabel}</p>
+        <div className="pb-14 border-b border-gray-100">
+          <p className="text-sm font-bold tracking-widest uppercase text-gray-600 mb-4">{f.financialLabel}</p>
           <div className="flex flex-wrap gap-3">
             {f.financialOptions.map(opt => (
               <OptionButton key={opt.value} label={opt.label} selected={form.financialStatus === opt.value} onClick={() => set('financialStatus', opt.value)} />
@@ -386,18 +407,18 @@ function Form({ lang, tr, onSubmit, submitting }: {
         </div>
 
         {/* Contact */}
-        <div className="space-y-6 pb-10 border-b border-gray-100">
+        <div className="space-y-6 pb-14 border-b border-gray-100">
           <UnderlineInput label={f.namePlaceholder} placeholder={f.namePlaceholder} value={form.fullName} onChange={v => set('fullName', v)} />
           <UnderlineInput label={f.emailPlaceholder} placeholder={f.emailPlaceholder} value={form.email} onChange={v => set('email', v)} type="email" />
           <UnderlineInput label={f.phonePlaceholder} placeholder={f.phonePlaceholder} value={form.phone} onChange={v => set('phone', v)} type="tel" />
         </div>
 
         {/* Consent */}
-        <label className="flex items-start gap-3 cursor-pointer">
+        <label className="flex items-start gap-4 cursor-pointer rounded-xl p-5" style={{ backgroundColor: '#0D1B2A' }}>
           <input type="checkbox" checked={form.consent} onChange={e => set('consent', e.target.checked)}
-            className="mt-0.5 w-4 h-4 flex-shrink-0 accent-[#3B7B9C]" />
-          <span className="text-xs text-gray-400 leading-relaxed">
-            <span className="underline" style={{ color: '#3B7B9C' }}>{f.privacyPolicy}</span>
+            className="mt-1 w-5 h-5 flex-shrink-0 accent-[#F0A500]" />
+          <span className="text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }}>
+            <span className="underline font-bold" style={{ color: '#F0A500' }}>{f.privacyPolicy}</span>
             {' — '}{f.consentText}
           </span>
         </label>
@@ -406,7 +427,7 @@ function Form({ lang, tr, onSubmit, submitting }: {
         <button
           onClick={() => canSubmit && onSubmit(form)}
           disabled={!canSubmit || submitting}
-          className="w-full flex items-center justify-center gap-3 py-4 rounded-xl text-sm font-bold tracking-widest uppercase transition-all"
+          className="w-full flex items-center justify-center gap-3 py-4 rounded-xl text-base font-bold tracking-widest uppercase transition-all"
           style={canSubmit && !submitting
             ? { backgroundColor: '#0a0a0a', color: 'white' }
             : { backgroundColor: '#f3f4f6', color: '#d1d5db', cursor: 'not-allowed' }
@@ -434,20 +455,20 @@ const FEATURE_ICONS = [
 
 function Features({ tr }: { tr: typeof translations.en }) {
   return (
-    <section className="bg-white py-20 px-6">
+    <section className="bg-white py-20 px-8">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-black text-center mb-16" style={{ color: '#0F1F3D' }}>
-          {tr.features.heading}
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          {tr.features.items.map((item, i) => (
-            <div key={i} className="flex flex-col">
-              <div className="mb-4">{FEATURE_ICONS[i]}</div>
-              <h3 className="text-base font-bold text-gray-900 mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-        </div>
+      <h2 className="text-4xl md:text-5xl font-black text-center mb-16" style={{ color: '#0D1B2A' }}>
+        {tr.features.heading}
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        {tr.features.items.map((item, i) => (
+          <div key={i} className="flex flex-col">
+            <div className="mb-4">{FEATURE_ICONS[i]}</div>
+            <h3 className="text-3xl font-bold text-gray-900 mb-2">{item.title}</h3>
+            <p className="text-xl text-gray-600 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
       </div>
     </section>
   )
@@ -461,7 +482,7 @@ function SuccessScreen({ tr }: { tr: typeof translations.en }) {
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3B7B9C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
       <h2 className="text-3xl font-black text-gray-900 mb-4">{tr.success.title}</h2>
-      <p className="text-gray-400 text-base max-w-sm mx-auto">{tr.success.desc}</p>
+      <p className="text-gray-600 text-base max-w-sm mx-auto">{tr.success.desc}</p>
     </div>
   )
 }
@@ -469,7 +490,7 @@ function SuccessScreen({ tr }: { tr: typeof translations.en }) {
 // ─── Footer ───────────────────────────────────────────────────────────────────
 function Footer({ tr }: { tr: typeof translations.en }) {
   return (
-    <footer className="bg-[#141414] text-white overflow-hidden">
+    <footer className="text-white overflow-hidden" style={{ backgroundColor: '#0D1B2A' }}>
       {/* Watermark company name */}
       <div className="relative">
         <div className="absolute inset-x-0 top-0 flex items-center justify-center pointer-events-none select-none overflow-hidden" style={{ height: '160px' }}>
@@ -484,15 +505,14 @@ function Footer({ tr }: { tr: typeof translations.en }) {
               <span className="text-xl font-black tracking-tight">{COMPANY}</span>
               <div className="text-[10px] tracking-widest text-gray-500 uppercase mt-0.5">{tr.nav.tagline}</div>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">{tr.footer.about}</p>
+            <p className="text-gray-600 text-sm leading-relaxed">{tr.footer.about}</p>
           </div>
           <div>
             <h4 className="text-xs font-bold tracking-widest uppercase text-gray-500 mb-5">{tr.footer.contactTitle}</h4>
             <ul className="space-y-3">
               {[
-                { icon: 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.15 3.44 2 2 0 0 1 3.11 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z', text: '(000) 000-0000' },
-                { icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z M22,6 12,13 2,6', text: 'contact@yourcompany.com' },
-                { icon: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0-6 0', text: 'Your Address Here' },
+                { icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z M22,6 12,13 2,6', text: 'autoprimeinc24@gmail.com' },
+                { icon: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0-6 0', text: '6281 Beach Blvd, Buena Park, CA 90621' },
               ].map(({ icon, text }) => (
                 <li key={text} className="flex items-start gap-3">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3B7B9C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 flex-shrink-0">
@@ -507,7 +527,7 @@ function Footer({ tr }: { tr: typeof translations.en }) {
             <h4 className="text-xs font-bold tracking-widest uppercase text-gray-500 mb-5">{tr.footer.linksTitle}</h4>
             <ul className="space-y-3">
               {tr.footer.links.map(link => (
-                <li key={link}><a href="#" className="text-gray-400 text-sm hover:text-white transition-colors">{link}</a></li>
+                <li key={link}><a href="#" className="text-gray-600 text-sm hover:text-white transition-colors">{link}</a></li>
               ))}
             </ul>
           </div>
