@@ -306,7 +306,7 @@ function OptionButton({ label, selected, onClick }: { label: string; selected: b
       onClick={onClick}
       className="px-5 py-3.5 rounded-lg text-xl font-bold tracking-wide transition-all border"
       style={selected
-        ? { backgroundColor: '#3B7B9C', color: 'white', borderColor: '#3B7B9C' }
+        ? { backgroundColor: '#0D1B2A', color: '#F0A500', borderColor: '#0D1B2A' }
         : { backgroundColor: 'white', color: '#6b7280', borderColor: '#e5e7eb' }
       }
     >
@@ -354,7 +354,10 @@ function Form({ lang, tr, onSubmit, submitting }: {
           </div>
           <div className="w-64 flex-shrink-0">
             <UnderlineInput label={f.milesLabel} placeholder={f.milesPlaceholder} value={form.miles}
-              onChange={v => set('miles', v.replace(/\D/g, ''))} suffix={f.milesSuffix} />
+              onChange={v => {
+                const digits = v.replace(/\D/g, '')
+                set('miles', digits ? digits.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '')
+              }} suffix={f.milesSuffix} />
           </div>
         </div>
 
@@ -370,15 +373,17 @@ function Form({ lang, tr, onSubmit, submitting }: {
                   style={{
                     backgroundColor: hex,
                     height: '72px',
-                    border: selected ? '3px solid #0D1B2A' : `2px solid ${border || 'transparent'}`,
-                    boxShadow: selected ? '0 0 0 1px #0D1B2A' : 'none',
+                    border: selected ? '3px solid #F0A500' : `2px solid ${border || 'transparent'}`,
+                    boxShadow: selected ? '0 0 0 2px #F0A500' : 'none',
                   }}
                 >
                   <span className="text-base font-bold tracking-wide" style={{ color: textColor || '#ffffff', textShadow: '0 1px 2px rgba(0,0,0,0.2)' }}>
                     {label[lang]}
                   </span>
                   {selected && (
-                    <span className="absolute top-1 right-1.5 text-[10px]" style={{ color: textColor || '#ffffff' }}>✓</span>
+                    <div className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full flex items-center justify-center" style={{ backgroundColor: '#F0A500' }}>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
                   )}
                 </button>
               )
@@ -410,7 +415,11 @@ function Form({ lang, tr, onSubmit, submitting }: {
         <div className="space-y-6 pb-14 border-b border-gray-100">
           <UnderlineInput label={f.namePlaceholder} placeholder={f.namePlaceholder} value={form.fullName} onChange={v => set('fullName', v)} />
           <UnderlineInput label={f.emailPlaceholder} placeholder={f.emailPlaceholder} value={form.email} onChange={v => set('email', v)} type="email" />
-          <UnderlineInput label={f.phonePlaceholder} placeholder={f.phonePlaceholder} value={form.phone} onChange={v => set('phone', v)} type="tel" />
+          <UnderlineInput label={f.phonePlaceholder} placeholder="(000) 000-0000" value={form.phone}
+            onChange={v => {
+              const d = v.replace(/\D/g, '').slice(0, 10)
+              set('phone', d.length >= 7 ? `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}` : d.length >= 4 ? `(${d.slice(0,3)}) ${d.slice(3)}` : d.length > 0 ? `(${d}` : '')
+            }} type="tel" />
         </div>
 
         {/* Consent */}
@@ -429,7 +438,7 @@ function Form({ lang, tr, onSubmit, submitting }: {
           disabled={!canSubmit || submitting}
           className="w-full flex items-center justify-center gap-3 py-4 rounded-xl text-base font-bold tracking-widest uppercase transition-all"
           style={canSubmit && !submitting
-            ? { backgroundColor: '#0a0a0a', color: 'white' }
+            ? { backgroundColor: '#F0A500', color: '#0D1B2A' }
             : { backgroundColor: '#f3f4f6', color: '#d1d5db', cursor: 'not-allowed' }
           }
         >
