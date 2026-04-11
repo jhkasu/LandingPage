@@ -324,7 +324,7 @@ function Form({ lang, tr, onSubmit, submitting }: {
   }
 
   const canSubmit =
-    form.vin.trim().length > 0 && form.miles.trim().length > 0 &&
+    form.vin.trim().length === 17 && form.miles.trim().length > 0 &&
     form.color !== '' && form.accidentHistory !== '' &&
     form.financialStatus !== '' && form.fullName.trim() !== '' &&
     form.email.trim() !== '' && form.phone.trim() !== '' && form.consent
