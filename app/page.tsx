@@ -259,9 +259,9 @@ function Hero({ tr }: { tr: typeof translations.en }) {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-50">
-        <span className="text-[10px] tracking-widest uppercase" style={{ color: '#0D1B2A' }}>Scroll</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
+        <span className="text-xs font-bold tracking-widest uppercase" style={{ color: '#0D1B2A' }}>Scroll</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
     </section>
   )
