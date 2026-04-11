@@ -186,12 +186,12 @@ function Navbar({ onCTA, lang, setLang, tr }: { onCTA: () => void; lang: Lang; s
           <div className="flex items-center rounded-full p-1" style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}>
             <button
               onClick={() => setLang('en')}
-              className="px-6 py-2.5 rounded-full text-base font-bold tracking-wider transition-all"
+              className="px-3 py-1.5 md:px-6 md:py-2.5 rounded-full text-sm md:text-base font-bold tracking-wider transition-all"
               style={lang === 'en' ? { backgroundColor: '#F0A500', color: '#0D1B2A' } : { color: 'rgba(255,255,255,0.5)' }}
             >EN</button>
             <button
               onClick={() => setLang('ko')}
-              className="px-6 py-2.5 rounded-full text-base font-bold tracking-wider transition-all"
+              className="px-3 py-1.5 md:px-6 md:py-2.5 rounded-full text-sm md:text-base font-bold tracking-wider transition-all"
               style={lang === 'ko' ? { backgroundColor: '#F0A500', color: '#0D1B2A' } : { color: 'rgba(255,255,255,0.5)' }}
             >한국어</button>
           </div>
