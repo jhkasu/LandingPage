@@ -4,10 +4,8 @@ import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
-const companyName = process.env.NEXT_PUBLIC_COMPANY_NAME || 'YOUR COMPANY'
-
 export const metadata: Metadata = {
-  title: `${companyName} — Get an Instant Quote for Your Vehicle`,
+  title: 'AUTOPRIME — Get an Instant Quote for Your Vehicle',
   description: 'Provide your vehicle details to receive a competitive market value offer.',
 }
 
