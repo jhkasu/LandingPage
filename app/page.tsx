@@ -536,7 +536,7 @@ function Footer({ tr }: { tr: typeof translations.en }) {
             <h4 className="text-xs font-bold tracking-widest uppercase text-gray-500 mb-5">{tr.footer.linksTitle}</h4>
             <ul className="space-y-3">
               {tr.footer.links.map((link, i) => {
-                const hrefs = ['/privacy-policy', '#', '#']
+                const hrefs = ['/privacy-policy', '/terms', '/data-privacy-rights']
                 return (
                   <li key={link}><a href={hrefs[i]} className="text-gray-600 text-sm hover:text-white transition-colors">{link}</a></li>
                 )
