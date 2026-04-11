@@ -349,12 +349,12 @@ function Form({ lang, tr, onSubmit, submitting }: {
         </div>
 
         {/* VIN + Miles */}
-        <div className="flex gap-8 pb-14 border-b border-gray-100">
+        <div className="flex flex-col md:flex-row gap-8 pb-14 border-b border-gray-100">
           <div className="flex-1 min-w-0">
             <UnderlineInput label={f.vinLabel} placeholder={f.vinPlaceholder} value={form.vin}
               onChange={v => set('vin', v.toUpperCase())} maxLength={17} />
           </div>
-          <div className="w-64 flex-shrink-0">
+          <div className="md:w-64 md:flex-shrink-0">
             <UnderlineInput label={f.milesLabel} placeholder={f.milesPlaceholder} value={form.miles}
               onChange={v => {
                 const digits = v.replace(/\D/g, '')
