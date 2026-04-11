@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
-  title: 'AUTOPRIME — Get an Instant Quote for Your Vehicle',
+  title: 'AUTOPRIME — Best Price on Lease & Used Vehicles',
   description: 'Provide your vehicle details to receive a competitive market value offer.',
 }
 
