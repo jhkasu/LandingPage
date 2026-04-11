@@ -1,14 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import twilio from 'twilio'
 
 const COMPANY = process.env.NEXT_PUBLIC_COMPANY_NAME || 'YOUR COMPANY'
 const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || ''
 const FROM_EMAIL = process.env.FROM_EMAIL || 'onboarding@resend.dev'
-const TWILIO_SID = process.env.TWILIO_ACCOUNT_SID || ''
-const TWILIO_TOKEN = process.env.TWILIO_AUTH_TOKEN || ''
-const TWILIO_FROM = process.env.TWILIO_PHONE_NUMBER || ''
-const ALERT_PHONE = process.env.ALERT_PHONE_NUMBER || ''
+const SMS_GATEWAY_EMAIL = process.env.SMS_GATEWAY_EMAIL || ''
 
 export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY)
@@ -97,18 +93,17 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Failed to send email' }, { status: 500 })
   }
 
-  // ─── SMS via Twilio ───────────────────────────────────────────────────────
-  if (TWILIO_SID && TWILIO_TOKEN && TWILIO_FROM && ALERT_PHONE) {
+  // ─── SMS via Verizon email-to-SMS gateway ─────────────────────────────────
+  if (SMS_GATEWAY_EMAIL) {
     try {
-      const smsClient = twilio(TWILIO_SID, TWILIO_TOKEN)
-      await smsClient.messages.create({
-        from: TWILIO_FROM,
-        to: ALERT_PHONE,
-        body: `[${COMPANY}] 새 견적 요청\n이름: ${fullName}\n연락처: ${phone}\n차량: ${vin}\n주행: ${miles}mi\n색상: ${color}\n사고: ${accidentHistory}\n재정: ${financialStatus}`,
+      await resend.emails.send({
+        from: FROM_EMAIL,
+        to: SMS_GATEWAY_EMAIL,
+        subject: '',
+        text: `[AUTOPRIME] 새 견적\n${fullName} / ${phone}\nVIN: ${vin}\n${miles}mi / ${color}\n사고: ${accidentHistory} / ${financialStatus}`,
       })
     } catch (smsErr) {
-      console.error('Twilio SMS error:', smsErr)
-      // SMS 실패해도 이메일은 이미 갔으니 성공 처리
+      console.error('SMS gateway error:', smsErr)
     }
   }
 
