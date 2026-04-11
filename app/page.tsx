@@ -45,6 +45,7 @@ const translations = {
       ],
       financialLabel: 'Financial Status',
       financialOptions: [
+        { label: 'Finance', value: 'FINANCE' },
         { label: 'Lease', value: 'LEASE' },
         { label: 'Paid in Full', value: 'PAID IN FULL' },
       ],
@@ -107,6 +108,7 @@ const translations = {
       ],
       financialLabel: '재정 상태',
       financialOptions: [
+        { label: '파이낸스', value: 'FINANCE' },
         { label: '리스', value: 'LEASE' },
         { label: '완납', value: 'PAID IN FULL' },
       ],
