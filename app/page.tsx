@@ -175,23 +175,23 @@ function IconTruck() {
 function Navbar({ onCTA, lang, setLang, tr }: { onCTA: () => void; lang: Lang; setLang: (l: Lang) => void; tr: typeof translations.en }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: '#0D1B2A', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-      <div className="px-8 md:px-14 py-5 flex items-center justify-between">
+      <div className="px-5 md:px-14 py-4 md:py-5 flex items-center justify-between">
         <div className="flex flex-col leading-none">
-          <span className="text-3xl font-black tracking-tight">
+          <span className="text-2xl md:text-3xl font-black tracking-tight">
             <span style={{ color: 'white' }}>Auto</span><span style={{ color: '#F0A500' }}>Prime</span>
           </span>
-          <span className="text-[11px] tracking-widest uppercase mt-1" style={{ color: 'rgba(255,255,255,0.7)' }}>{tr.nav.tagline}</span>
+          <span className="hidden md:block text-[11px] tracking-widest uppercase mt-1" style={{ color: 'rgba(255,255,255,0.7)' }}>{tr.nav.tagline}</span>
         </div>
         <div className="flex items-center">
           <div className="flex items-center rounded-full p-1" style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}>
             <button
               onClick={() => setLang('en')}
-              className="px-3 py-1.5 md:px-6 md:py-2.5 rounded-full text-sm md:text-base font-bold tracking-wider transition-all"
+              className="px-4 py-1.5 md:px-6 md:py-2.5 rounded-full text-sm md:text-base font-bold tracking-wider transition-all whitespace-nowrap"
               style={lang === 'en' ? { backgroundColor: '#F0A500', color: '#0D1B2A' } : { color: 'rgba(255,255,255,0.5)' }}
             >EN</button>
             <button
               onClick={() => setLang('ko')}
-              className="px-3 py-1.5 md:px-6 md:py-2.5 rounded-full text-sm md:text-base font-bold tracking-wider transition-all"
+              className="px-4 py-1.5 md:px-6 md:py-2.5 rounded-full text-sm md:text-base font-bold tracking-wider transition-all whitespace-nowrap"
               style={lang === 'ko' ? { backgroundColor: '#F0A500', color: '#0D1B2A' } : { color: 'rgba(255,255,255,0.5)' }}
             >한국어</button>
           </div>
@@ -230,7 +230,7 @@ function Hero({ tr }: { tr: typeof translations.en }) {
           </div>
 
           {/* Heading */}
-          <h1 className="font-black leading-tight mb-5" style={{ color: '#0D1B2A', fontSize: 'clamp(3.2rem, 6.5vw, 5.5rem)' }}>
+          <h1 className="font-black leading-tight mb-5" style={{ color: '#0D1B2A', fontSize: 'clamp(2.2rem, 6.5vw, 5.5rem)' }}>
             <span className="block">{tr.hero.headingLine1}</span>
             <span style={{ color: '#F0A500' }}>{tr.hero.headingAccent}</span>
             {' '}
