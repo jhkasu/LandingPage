@@ -567,7 +567,7 @@ export default function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, lang }),
       })
-      if (res.ok) { setSubmitted(true); window.scrollTo({ top: 0, behavior: 'smooth' }) }
+      if (res.ok) { setSubmitted(true); document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' }) }
       else alert(lang === 'ko' ? '오류가 발생했습니다. 다시 시도해 주세요.' : 'Something went wrong. Please try again.')
     } catch {
       alert(lang === 'ko' ? '오류가 발생했습니다. 다시 시도해 주세요.' : 'Something went wrong. Please try again.')
