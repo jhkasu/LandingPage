@@ -10,11 +10,14 @@ const SMS_GATEWAY_EMAIL = process.env.SMS_GATEWAY_EMAIL || ''
 export async function POST(req: NextRequest) {
   const body = await req.json()
 
-  const { vin, miles, color, accidentHistory, financialStatus, fullName, email, phone } = body
+  const { vin, miles, color, accidentHistory, financialStatus, vehicleOptions, fullName, email, phone } = body
 
   if (!vin || !miles || !color || !accidentHistory || !financialStatus || !fullName || !email || !phone) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
   }
+
+  const optionsList: string[] = Array.isArray(vehicleOptions) ? vehicleOptions : []
+  const optionsDisplay = optionsList.length > 0 ? optionsList.join(', ') : 'None'
 
   if (!GMAIL_USER || !GMAIL_APP_PASSWORD || !RECIPIENT_EMAIL) {
     return NextResponse.json({ error: 'Server not configured' }, { status: 500 })
@@ -60,6 +63,8 @@ export async function POST(req: NextRequest) {
           <div class="field"><span class="label">Accident History</span><span class="value">${accidentHistory}</span></div>
           <div class="section-title">Financial Status</div>
           <div class="field"><span class="label">Status</span><span class="value">${financialStatus}</span></div>
+          <div class="section-title">Vehicle Options</div>
+          <div class="field"><span class="label">Options</span><span class="value">${optionsDisplay}</span></div>
           <div class="section-title">Customer Contact</div>
           <div class="field"><span class="label">Name</span><span class="value">${fullName}</span></div>
           <div class="field"><span class="label">Email</span><span class="value">${email}</span></div>
@@ -89,7 +94,7 @@ export async function POST(req: NextRequest) {
         from: GMAIL_USER,
         to: SMS_GATEWAY_EMAIL,
         subject: '',
-        text: `[AUTOPRIME] 새 견적\n${fullName} / ${phone}\nVIN: ${vin}\n${miles}mi / ${color}\n사고: ${accidentHistory} / ${financialStatus}`,
+        text: `[AUTOPRIME] 새 견적\n${fullName} / ${phone}\nVIN: ${vin}\n${miles}mi / ${color}\n사고: ${accidentHistory} / ${financialStatus}\n옵션: ${optionsDisplay}`,
       })
     }
   } catch (err) {
